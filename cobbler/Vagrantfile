@@ -1,0 +1,9 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/rocky8"
+  config.vm.network "private_network", ip: "172.89.0.60"
+  config.vm.provision "shell", inline: <<-SHELL
+    cat >> /home/vagrant/.ssh/authorized_keys <<EOF
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCdewydn8ETBJZgxeOGMCCwgsbQ1Ua0Dh+WJBEqpPLD2FjV8tO1TvedvxXPtNj5sG8zqlVJYXlZq9+hXIjKELgyP6syjCAvDlBGE4HndHvFQvf3nofkalUQSv6ASRaAiskMNxQDpUfoXjgDeqXHZmqIW/kaXNhR9JODe2oJOH7+rUd/K/v82JZtVKqmxu/NyUVQJX/FscL31bt8Onkq2skz1Mijny415mwtV6NgZllQ0//TN90AW+9YWv4YPy9T3TC3ckElDr+zPMVYPS/+QbXbtXB8qntC/NiK27DFbGIgROFHna0Xeu1h415UQ50UTjB57zmC8HyjiwLxWxziTAZgjiJ8xhZlNqlgRI96e3uNST7Bh+WbfLmvG4vunDDbaUKpT6LZ7o7ZBaMxxCX3T5gaYmdT61YUIoBwALXAsovCw4h0dX/QJ488ceL4zrVXPePXUa5YGrHks8gOCYuRZw6lJRZASqvCCP99UknZ2TVxOwgmrJe7RU+nHdhix2+T0gLdEl8j0I0PFnqJoYjc3C2p7h047S3DFgsP8TzrWcOgWWOJB9XtKcTHcvE+rNnn3Ugir63B72fOnKy+YhQbWKJwMV7nN7KTrmCCLkXa1QiDwCb9KsiCkAZBErKlqfLUr7fFL9XQlhSpn6u/wDRCMhnkBRoRtg72mpr/jTAS6Ymovw== matheusschwertz@gmail.com
+EOF
+  SHELL
+end
